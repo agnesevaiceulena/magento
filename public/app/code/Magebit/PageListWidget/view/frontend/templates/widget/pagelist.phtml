@@ -1,0 +1,20 @@
+<?php /** @var \Magebit\PageListWidget\Block\Widget\PageList $block */ ?>
+
+<?php if ($block->getTitle()): ?>
+    <h2><?php echo $block->escapeHtml($block->getTitle()); ?></h2>
+<?php endif; ?>
+
+<?php $pages = $block->getPages(); ?>
+<?php if ($pages->getSize() > 0): ?>
+    <ul>
+        <?php foreach ($pages as $page): ?>
+            <li>
+                <a href="<?php echo $block->getUrl($page->getIdentifier()); ?>">
+                    <?php echo $block->escapeHtml($page->getTitle()); ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php else: ?>
+    <p><?php echo __('No pages available.'); ?></p>
+<?php endif; ?>

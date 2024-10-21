@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.type">
+            <block class="Magento\Catalog\Block\Product\View\Type\Simple" name="product.info.simple" as="product_type_data" template="Magento_Catalog::product/view/type/default.phtml"/>
+            <container name="product.info.simple.extra" after="product.info.simple" as="product_type_data_extra" label="Product Extra Info"/>
+        </referenceContainer>
+
+        <move element="product.attributes" destination="product.info.main" after="product.info.price" />
+        <move element="product.info.upsell" destination="product.info.main" after="product.info.addtocart" />
+
+        <referenceBlock name="product.info.addto" remove="true" />
+        <referenceBlock name="product.info.description" remove="true" />
+        <referenceBlock name="product.info.details" remove="true" />
+
+        <referenceBlock name="product.info.stock.sku.available" remove="true" />
+
+        <referenceContainer name="page.wrapper">
+            <container name="before.page.wrapper.end" label="Before Page Wrapper End" htmlClass="page-main-bottom" htmlTag="section" after="main.content">
+                <block class="Magento\Catalog\Block\Product\ProductList\Related" name="catalog.product.related" template="Magento_Catalog::product/list/items.phtml">
+                    <arguments>
+                        <argument name="type" xsi:type="string">related</argument>
+                        <argument name="view_model" xsi:type="object">Magento\Catalog\ViewModel\Product\Listing\PreparePostData</argument>
+                    </arguments>
+
+                    <action method="setItemLimit">
+                        <argument name="type" xsi:type="string">related</argument>
+                        <argument name="limit" xsi:type="number">5</argument>
+                    </action>
+
+                    <block class="Magento\Catalog\Block\Product\ProductList\Item\Container" name="related.product.addto" as="addto">
+                        <block class="Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare"
+                            name="related.product.addto.compare" as="compare"
+                            template="Magento_Catalog::product/list/addto/compare.phtml"/>
+                    </block>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>
+
+
+
+
+
+
+
