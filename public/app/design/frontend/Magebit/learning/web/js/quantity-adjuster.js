@@ -1,28 +1,23 @@
-define([
-    'ko',
-    'uiComponent'
-], function (ko, Component) {
-    'use strict';
+define(["ko", "uiComponent"], function (ko, Component) {
+    "use strict";
 
     return Component.extend({
         defaults: {
             qty: ko.observable(1),
             stockQty: 0,
             isInStock: true,
-            stockStatus: ko.observable(''),
-            canAddToCart: ko.observable(true)
+            stockStatus: ko.observable(""),
+            canAddToCart: ko.observable(true),
         },
 
         initialize: function () {
             this._super();
             this.updateStockStatus();
 
-            // Disable Add to Cart button if out of stock
             if (this.stockQty <= 0) {
                 this.canAddToCart(false);
             }
 
-            // Watch for changes in quantity to update Add to Cart button status
             this.qty.subscribe(function (newQty) {
                 this.updateAddToCartButton(newQty);
             }, this);
@@ -45,9 +40,13 @@ define([
         /** Update stock status message */
         updateStockStatus: function () {
             if (this.isInStock) {
-                this.stockStatus('<strong>IN STOCK</strong> ' + this.stockQty + ' items available');
+                this.stockStatus(
+                    "<strong>IN STOCK</strong> " +
+                        this.stockQty +
+                        " items available"
+                );
             } else {
-                this.stockStatus('Out of Stock');
+                this.stockStatus("Out of Stock");
             }
         },
 
@@ -58,6 +57,6 @@ define([
             } else {
                 this.canAddToCart(true);
             }
-        }
+        },
     });
 });

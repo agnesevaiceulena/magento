@@ -1,0 +1,26 @@
+# Magento 2 generated and cache folders
+/public/generated/
+/public/var/
+/public/vendor/
+/public/pub/static/
+/public/pub/media/
+/public/node_modules/
+/public/phpserver/
+/logs/
+
+# Magento 2 configuration and sensitive data files
+/public/app/etc/env.php
+/public/app/etc/config.php
+/public/auth.json.sample
+
+# Other unnecessary files
+/.vscode/
+/public/.htaccess
+/public/.htaccess.sample
+/public/.editorconfig
+/public/composer.lock
+/public/package-lock.json
+/public/node_modules/
+/public/nginx.conf.sample
+/public/Gruntfile.js
+/public/package.json

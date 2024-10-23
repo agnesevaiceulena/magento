@@ -1,4 +1,18 @@
 <?php
+/**
+ * This file is part of the Magebit_BackOrder package.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magebit_BackOrder
+ * to newer versions in the future.
+ *
+ * @copyright Copyright (c) 2024 Magebit, Ltd. (https://magebit.com/)
+ * @author    Magebit <info@magebit.com/>
+ * @license   MIT
+ */
+declare(strict_types=1);
+
 namespace Magebit\Faq\Model;
 
 use Magebit\Faq\Api\Data\QuestionInterface;
@@ -7,7 +21,9 @@ use Magento\Framework\Model\AbstractModel;
 class Question extends AbstractModel implements QuestionInterface
 {
     /**
-     * Define resource model
+     * Define resource model.
+     *
+     * @return void
      */
     protected function _construct()
     {
@@ -15,7 +31,7 @@ class Question extends AbstractModel implements QuestionInterface
     }
 
     /**
-     * Get ID
+     * Get ID.
      *
      * @return int|null
      */
@@ -25,7 +41,7 @@ class Question extends AbstractModel implements QuestionInterface
     }
 
     /**
-     * Get Question
+     * Get Question.
      *
      * @return string
      */
@@ -35,7 +51,7 @@ class Question extends AbstractModel implements QuestionInterface
     }
 
     /**
-     * Set Question
+     * Set Question.
      *
      * @param string $question
      * @return $this
@@ -46,7 +62,7 @@ class Question extends AbstractModel implements QuestionInterface
     }
 
     /**
-     * Get Answer
+     * Get Answer.
      *
      * @return string
      */
@@ -56,7 +72,7 @@ class Question extends AbstractModel implements QuestionInterface
     }
 
     /**
-     * Set Answer
+     * Set Answer.
      *
      * @param string $answer
      * @return $this
@@ -67,7 +83,7 @@ class Question extends AbstractModel implements QuestionInterface
     }
 
     /**
-     * Get Status
+     * Get Status.
      *
      * @return int
      */
@@ -77,7 +93,7 @@ class Question extends AbstractModel implements QuestionInterface
     }
 
     /**
-     * Set Status
+     * Set Status.
      *
      * @param int $status
      * @return $this
@@ -88,7 +104,7 @@ class Question extends AbstractModel implements QuestionInterface
     }
 
     /**
-     * Get Position
+     * Get Position.
      *
      * @return int
      */
@@ -98,7 +114,7 @@ class Question extends AbstractModel implements QuestionInterface
     }
 
     /**
-     * Set Position
+     * Set Position.
      *
      * @param int $position
      * @return $this
@@ -109,7 +125,7 @@ class Question extends AbstractModel implements QuestionInterface
     }
 
     /**
-     * Get Updated At timestamp
+     * Get Updated At timestamp.
      *
      * @return string|null
      */
@@ -118,7 +134,12 @@ class Question extends AbstractModel implements QuestionInterface
         return $this->getData(self::UPDATED_AT);
     }
 
-
+    /**
+     * Set Updated At timestamp.
+     *
+     * @param string $updatedAt
+     * @return $this
+     */
     public function setUpdatedAt($updatedAt)
     {
         return $this->setData(self::UPDATED_AT, $updatedAt);

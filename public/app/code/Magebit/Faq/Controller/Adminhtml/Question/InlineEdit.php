@@ -1,4 +1,17 @@
 <?php
+/**
+ * This file is part of the Magebit_BackOrder package.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magebit_BackOrder
+ * to newer versions in the future.
+ *
+ * @copyright Copyright (c) 2024 Magebit, Ltd. (https://magebit.com/)
+ * @author    Magebit <info@magebit.com>
+ * @license   MIT
+ */
+declare(strict_types=1);
 
 namespace Magebit\Faq\Controller\Adminhtml\Question;
 
@@ -25,6 +38,8 @@ class InlineEdit extends Action
     protected $logger;
 
     /**
+     * Constructor.
+     *
      * @param Action\Context $context
      * @param JsonFactory $jsonFactory
      * @param QuestionRepositoryInterface $questionRepository
@@ -43,7 +58,7 @@ class InlineEdit extends Action
     }
 
     /**
-     * Inline edit action for FAQ Questions
+     * Inline edit action for FAQ questions.
      *
      * @return \Magento\Framework\Controller\Result\Json
      */
@@ -77,9 +92,7 @@ class InlineEdit extends Action
         foreach ($postItems as $questionId => $data) {
             try {
                 $question = $this->questionRepository->getById((int) $questionId);
-
                 $question->setData(array_merge($question->getData(), $data));
-
                 $this->questionRepository->save($question);
             } catch (\Exception $e) {
                 $messages[] = "[ID: {$questionId}] " . $e->getMessage();

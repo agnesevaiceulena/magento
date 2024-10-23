@@ -1,4 +1,11 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2024 Magebit, Ltd.
+ * @author    Magebit <info@magebit.com/>
+ * @license   MIT
+ */
+-->
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
     <table name="magebit_faq" resource="default" engine="innodb" comment="FAQ Table">
         <column xsi:type="int" name="id" nullable="false" identity="true" unsigned="true" comment="ID"/>

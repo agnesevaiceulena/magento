@@ -2,47 +2,39 @@
 /**
  * Customization for quantity adjuster with Knockout.js
  *
- * @var $block \Magento\Catalog\Block\Product\View
+ * @var \Magento\Catalog\Block\Product\View $block
+ * @var \Magento\Framework\Escaper $escaper
  */
 ?>
 <?php $_product = $block->getProduct(); ?>
 <?php $buttonTitle = __('Add to Cart'); ?>
-<?php if ($_product->isSaleable()) : ?>
-<div class="box-tocart" data-bind="scope: 'productAddToCartForm'">
-    <div class="fieldset">
-        <!-- Quantity Field -->
-        <?php if ($block->shouldRenderQuantity()) : ?>
-        <div class="field qty">
-            <div class="control">
-                <button type="button" class="qty-minus" data-bind="click: decreaseQty">-</button>
-                <input type="number"
-                       name="qty"
-                       id="qty"
-                       min="1"
-                       data-bind="value: qty, valueUpdate: 'input'"
-                       value="<?= $block->getProductDefaultQty() * 1 ?>"
-                       title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
-                       class="input-text qty"
-                       data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
-                />
-                <button type="button" class="qty-plus" data-bind="click: increaseQty">+</button>
+<?php if ($_product->isSaleable()): ?>
+    <div class="box-tocart" data-bind="scope: 'productAddToCartForm'">
+        <div class="fieldset">
+            <!-- Quantity Field -->
+            <?php if ($block->shouldRenderQuantity()): ?>
+                <div class="field qty">
+                    <div class="control">
+                        <button type="button" class="qty-minus" data-bind="click: decreaseQty">-</button>
+                        <input type="number" name="qty" id="qty" min="1" data-bind="value: qty, valueUpdate: 'input'"
+                            value="<?= $escaper->escapeHtml($block->getProductDefaultQty() * 1) ?>"
+                            title="<?= $escaper->escapeHtmlAttr(__('Qty')) ?>" class="input-text qty"
+                            data-validate="<?= $escaper->escapeHtml(json_encode($block->getQuantityValidators())) ?>" />
+                        <button type="button" class="qty-plus" data-bind="click: increaseQty">+</button>
 
-                <div class="stock-status" data-bind="html: stockStatus"></div>
+                        <div class="stock-status" data-bind="html: stockStatus"></div>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="actions">
+                <button type="submit" title="<?= $escaper->escapeHtmlAttr($buttonTitle) ?>" class="action primary tocart"
+                    id="product-addtocart-button" data-bind="attr: {disabled: !canAddToCart()}">
+                    <span><?= $escaper->escapeHtml($buttonTitle) ?></span>
+                </button>
+                <?= $block->getChildHtml('', true) ?>
             </div>
         </div>
-        <?php endif; ?>
-        <div class="actions">
-            <button type="submit"
-                    title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
-                    class="action primary tocart"
-                    id="product-addtocart-button"
-                    data-bind="attr: {disabled: !canAddToCart()}">
-                <span><?= $block->escapeHtml($buttonTitle) ?></span>
-            </button>
-            <?= $block->getChildHtml('', true) ?>
-        </div>
     </div>
-</div>
 <?php endif; ?>
 
 <script type="text/x-magento-init">

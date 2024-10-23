@@ -1,4 +1,17 @@
 <?php
+/**
+ * This file is part of the Magebit_BackOrder package.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magebit_BackOrder
+ * to newer versions in the future.
+ *
+ * @copyright Copyright (c) 2024 Magebit, Ltd. (https://magebit.com/)
+ * @author    Magebit <info@magebit.com/>
+ * @license   MIT
+ */
+declare(strict_types=1);
 
 namespace Magebit\Faq\Ui\Component\Listing\Column;
 
@@ -6,7 +19,6 @@ use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
-use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Escaper;
 
 class QuestionActions extends Column
@@ -28,9 +40,12 @@ class QuestionActions extends Column
     private $escaper;
 
     /**
+     * Constructor.
+     *
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
      * @param UrlInterface $urlBuilder
+     * @param Escaper $escaper
      * @param array $components
      * @param array $data
      */
@@ -38,16 +53,17 @@ class QuestionActions extends Column
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
         UrlInterface $urlBuilder,
+        Escaper $escaper,
         array $components = [],
         array $data = []
     ) {
         $this->urlBuilder = $urlBuilder;
-        $this->escaper = ObjectManager::getInstance()->get(Escaper::class);
+        $this->escaper = $escaper;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
     /**
-     * Prepares the data source for the grid with Edit and Delete actions
+     * Prepares the data source for the grid with Edit and Delete actions.
      *
      * @param array $dataSource
      * @return array

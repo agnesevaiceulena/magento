@@ -2,7 +2,8 @@
 /**
  * Product additional attributes template
  *
- * @var $block \Magento\Catalog\Block\Product\View\Attributes
+ * @var \Magento\Catalog\Block\Product\View\Attributes $block
+ * @var \Magento\Framework\Escaper $escaper
  */
 $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 $_product = $block->getProduct();
@@ -11,16 +12,16 @@ $requiredAttributes = ['dimensions', 'colour', 'material'];
 
 $_description = $_product->getDescription();
 $_description = strip_tags($_description);
-$firstSentence = strtok($_description, '.').'.';
+$firstSentence = strtok($_description, '.') . '.';
 ?>
 
-<?php if ($_additional = $block->getAdditionalData()) : ?>
+<?php if ($_additional = $block->getAdditionalData()): ?>
     <div class="product-attributes">
         <ul>
-            <?php foreach ($_additional as $_data) : ?>
-                <?php if (in_array($_data['code'], $requiredAttributes)) : ?>
+            <?php foreach ($_additional as $_data): ?>
+                <?php if (in_array($_data['code'], $requiredAttributes)): ?>
                     <li>
-                        <strong><?= $block->escapeHtml($_data['label']) ?>:</strong>
+                        <strong><?= $escaper->escapeHtml($_data['label']) ?>:</strong>
                         <?= $_helper->productAttribute($_product, $_data['value'], $_data['code']) ?>
                     </li>
                 <?php endif; ?>
@@ -31,6 +32,6 @@ $firstSentence = strtok($_description, '.').'.';
 
 <?php if (!empty($firstSentence)): ?>
     <div class="product-short-description">
-        <?= $block->escapeHtml($firstSentence) ?>
+        <?= $escaper->escapeHtml($firstSentence) ?>
     </div>
 <?php endif; ?>

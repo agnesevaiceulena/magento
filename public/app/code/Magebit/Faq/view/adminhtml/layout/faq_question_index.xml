@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <!--
 /**
- * FAQ listing layout
+ * @copyright Copyright (c) 2024 Magebit, Ltd.
+ * @author    Magebit <info@magebit.com/>
+ * @license   MIT
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">

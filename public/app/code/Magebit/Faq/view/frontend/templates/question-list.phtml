@@ -1,27 +1,34 @@
 <?php
+/**
+ *
+ * @copyright Copyright (c) 2024 Magebit, Ltd. (https://magebit.com/)
+ * @author    Magebit <info@magebit.com/>
+ * @license   MIT
+ */
+
 /** @var \Magebit\Faq\Block\QuestionList $block */
 $faqQuestions = $block->getQuestions();
 ?>
 
 <?php if (!empty($faqQuestions)): ?>
-    <div class="faq-questions">
-        <dl class="faq-accordion">
-            <?php foreach ($faqQuestions as $question): ?>
-                <dt class="faq-title">
-                    <span><?= $this->escapeHtml($question->getQuestion()); ?></span>
-                </dt>
-                <dd class="faq-answer">
-                    <div><?= $this->escapeHtml($question->getAnswer()); ?></div>
-                </dd>
-            <?php endforeach; ?>
-        </dl>
-    </div>
+        <div class="faq-questions">
+            <dl class="faq-accordion">
+                <?php foreach ($faqQuestions as $question): ?>
+                        <dt class="faq-title">
+                            <span><?= $this->escapeHtml($question->getQuestion()); ?></span>
+                        </dt>
+                        <dd class="faq-answer">
+                            <div><?= $this->escapeHtml($question->getAnswer()); ?></div>
+                        </dd>
+                <?php endforeach; ?>
+            </dl>
+        </div>
 
-    <script>
-        require(['jquery', 'mage/accordion'], function($){
-            $('.faq-accordion').accordion();
-        });
-    </script>
+        <script>
+            require(['jquery', 'mage/accordion'], function ($) {
+                $('.faq-accordion').accordion();
+            });
+        </script>
 <?php else: ?>
-    <p><?= __('No FAQs available at the moment.') ?></p>
+        <p><?= __('No FAQs available at the moment.') ?></p>
 <?php endif; ?>

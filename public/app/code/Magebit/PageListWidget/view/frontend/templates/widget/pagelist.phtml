@@ -1,7 +1,21 @@
-<?php /** @var \Magebit\PageListWidget\Block\Widget\PageList $block */ ?>
+<?php
+/**
+ * This file is part of the Magebit_PageListWidget package.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magebit_PageListWidget
+ * to newer versions in the future.
+ *
+ * @copyright Copyright (c) 2024 Magebit, Ltd. (https://magebit.com/)
+ * @author    Magebit <info@magebit.com/>
+ * @license   MIT
+ */
+
+/** @var \Magebit\PageListWidget\Block\Widget\PageList $block */ ?>
 
 <?php if ($block->getTitle()): ?>
-    <h2><?php echo $block->escapeHtml($block->getTitle()); ?></h2>
+    <h2><?php echo $block->escapeHtmlText($block->getTitle()); ?></h2>
 <?php endif; ?>
 
 <?php $pages = $block->getPages(); ?>
@@ -10,7 +24,7 @@
         <?php foreach ($pages as $page): ?>
             <li>
                 <a href="<?php echo $block->getUrl($page->getIdentifier()); ?>">
-                    <?php echo $block->escapeHtml($page->getTitle()); ?>
+                    <?php echo $block->escapeHtmlText($page->getTitle()); ?>
                 </a>
             </li>
         <?php endforeach; ?>

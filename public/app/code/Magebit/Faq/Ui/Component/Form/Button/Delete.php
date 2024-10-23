@@ -1,9 +1,21 @@
 <?php
+/**
+ * This file is part of the Magebit_BackOrder package.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magebit_BackOrder
+ * to newer versions in the future.
+ *
+ * @copyright Copyright (c) 2024 Magebit, Ltd. (https://magebit.com/)
+ * @author    Magebit <info@magebit.com/>
+ * @license   MIT
+ */
+declare(strict_types=1);
 
 namespace Magebit\Faq\Ui\Component\Form\Button;
 
 use Magento\Framework\View\Element\UiComponent\Context;
-use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 use Magento\Framework\UrlInterface;
 
@@ -20,7 +32,7 @@ class Delete implements ButtonProviderInterface
     protected $context;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param UrlInterface $urlBuilder
      * @param Context $context
@@ -32,7 +44,7 @@ class Delete implements ButtonProviderInterface
     }
 
     /**
-     * Get configuration for the Delete button
+     * Get configuration for the Delete button.
      *
      * @return array
      */
@@ -54,7 +66,7 @@ class Delete implements ButtonProviderInterface
     }
 
     /**
-     * Get current FAQ id
+     * Get current FAQ id.
      *
      * @return int|null
      */
@@ -64,7 +76,7 @@ class Delete implements ButtonProviderInterface
     }
 
     /**
-     * Get URL for delete action
+     * Get URL for delete action.
      *
      * @return string
      */

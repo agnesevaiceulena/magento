@@ -1,4 +1,17 @@
 <?php
+/**
+ * This file is part of the Magebit_BackOrder package.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magebit_BackOrder
+ * to newer versions in the future.
+ *
+ * @copyright Copyright (c) 2024 Magebit, Ltd. (https://magebit.com/)
+ * @author    Magebit <info@magebit.com>
+ * @license   MIT
+ */
+declare(strict_types=1);
 
 namespace Magebit\Faq\Controller\Adminhtml\Question;
 
@@ -9,9 +22,23 @@ use Magento\Framework\App\Action\HttpGetActionInterface;
 
 class Edit extends Action implements HttpGetActionInterface
 {
+    /**
+     * @var PageFactory
+     */
     protected $resultPageFactory;
+
+    /**
+     * @var QuestionRepositoryInterface
+     */
     protected $questionRepository;
 
+    /**
+     * Constructor.
+     *
+     * @param Action\Context $context
+     * @param PageFactory $resultPageFactory
+     * @param QuestionRepositoryInterface $questionRepository
+     */
     public function __construct(
         Action\Context $context,
         PageFactory $resultPageFactory,
@@ -22,6 +49,11 @@ class Edit extends Action implements HttpGetActionInterface
         $this->questionRepository = $questionRepository;
     }
 
+    /**
+     * Edit FAQ question.
+     *
+     * @return \Magento\Framework\View\Result\Page|\Magento\Framework\Controller\Result\Redirect
+     */
     public function execute()
     {
         $id = (int) $this->getRequest()->getParam('id');

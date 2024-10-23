@@ -1,5 +1,16 @@
 <?php
-
+/**
+ * This file is part of the Magebit_BackOrder package.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magebit_BackOrder
+ * to newer versions in the future.
+ *
+ * @copyright Copyright (c) 2024 Magebit, Ltd. (https://magebit.com/)
+ * @author    Magebit <info@magebit.com/>
+ * @license   MIT
+ */
 declare(strict_types=1);
 
 namespace Magebit\Faq\Ui\Component\Form\Button;
@@ -10,7 +21,7 @@ use Magento\Ui\Component\Control\Container;
 class Save implements ButtonProviderInterface
 {
     /**
-     * Get Save Button Configuration
+     * Get Save Button Configuration.
      *
      * @return array
      */
@@ -43,13 +54,13 @@ class Save implements ButtonProviderInterface
     }
 
     /**
-     * Get Save & Close Option
+     * Get Save & Close Option.
      *
      * @return array
      */
     private function getOptions(): array
     {
-        $options = [
+        return [
             [
                 'id_hard' => 'save_and_close',
                 'label' => __('Save & Close'),
@@ -73,7 +84,5 @@ class Save implements ButtonProviderInterface
                 ]
             ]
         ];
-
-        return $options;
     }
 }

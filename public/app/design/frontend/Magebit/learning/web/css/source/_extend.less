@@ -1,31 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 a,
 .alink {
-  color: #FF5501;
-  text-decoration: none;
-  text-decoration: underline;
+    color: #ff5501;
+    text-decoration: none;
+    text-decoration: underline;
 }
 
 a:visited,
 .alink:visited {
-  color: #ce5519;
-  text-decoration: none;
+    color: #ce5519;
+    text-decoration: none;
 }
 a:hover,
 .alink:hover {
-  color: #fa6317;
-  text-decoration: underline;
+    color: #fa6317;
+    text-decoration: underline;
 }
 
 a:active,
 .alink:active {
-  color: #ff5501;
-  text-decoration: underline;
+    color: #ff5501;
+    text-decoration: underline;
 }
 
 .page-title {
@@ -62,18 +62,18 @@ a:active,
 
         .reviews-actions {
             display: inline-block;
-            font-size: floor(.8 * @font-size__base);
+            font-size: floor(0.8 * @font-size__base);
             vertical-align: middle;
 
             a:not(:last-child) {
                 margin-right: 20px;
-                color: #FF5501;
+                color: #ff5501;
                 text-decoration: underline;
                 font-size: 12px;
-
             }
             .action.add {
-                background: transparent url('img/Rectangle 20.png') 0% 0% no-repeat padding-box;
+                background: transparent url("img/Rectangle 20.png") 0% 0%
+                    no-repeat padding-box;
                 background-size: cover;
                 border: 1px solid #333333;
                 border-radius: 2px;
@@ -179,9 +179,10 @@ a:active,
 .qty-minus {
     width: 52px;
     height: 52px;
-    background: transparent url('../images/Rectangle 19.svg') no-repeat center center;
+    background: transparent url("../images/Rectangle 19.svg") no-repeat center
+        center;
     background-size: 10px 2px;
-    border: 1px solid #C2C2C2;
+    border: 1px solid #c2c2c2;
     border-radius: 2px 0px 0px 2px;
     font-size: 0;
     color: transparent;
@@ -192,9 +193,10 @@ a:active,
 }
 
 .qty-minus:hover {
-    background: transparent url('../images/Rectangle 19.svg') no-repeat center center;
+    background: transparent url("../images/Rectangle 19.svg") no-repeat center
+        center;
     background-size: 10px 2px;
-    border: 1px solid #C2C2C2;
+    border: 1px solid #c2c2c2;
     color: transparent;
 }
 
@@ -205,9 +207,10 @@ a:active,
 
 .qty-minus:focus,
 .qty-minus:active {
-    background: transparent url('../images/Rectangle 19.svg') no-repeat center center;
+    background: transparent url("../images/Rectangle 19.svg") no-repeat center
+        center;
     background-size: 10px 2px;
-    border: 1px solid #C2C2C2;
+    border: 1px solid #c2c2c2;
     outline: none;
     color: transparent;
 }
@@ -216,9 +219,9 @@ a:active,
 .input-text.qty {
     width: 86px !important;
     height: 52px;
-    background: #FFFFFF;
-    border-bottom: 1px solid #C2C2C2 !important;
-    border-top: 1px solid #C2C2C2 !important;
+    background: #ffffff;
+    border-bottom: 1px solid #c2c2c2 !important;
+    border-top: 1px solid #c2c2c2 !important;
     border-left: none !important;
     border-right: none !important;
     text-align: center;
@@ -233,9 +236,9 @@ a:active,
 .qty-plus {
     width: 52px;
     height: 52px;
-    background: transparent url('../images/Group 9.svg') no-repeat center center;
+    background: transparent url("../images/Group 9.svg") no-repeat center center;
     background-size: 10px 10px;
-    border: 1px solid #C2C2C2;
+    border: 1px solid #c2c2c2;
     border-radius: 0px 2px 2px 0px;
     font-size: 0;
     color: transparent;
@@ -246,9 +249,9 @@ a:active,
 }
 
 .qty-plus:hover {
-    background: transparent url('../images/Group 9.svg') no-repeat center center;
+    background: transparent url("../images/Group 9.svg") no-repeat center center;
     background-size: 10px 10px;
-    border: 1px solid #C2C2C2;
+    border: 1px solid #c2c2c2;
     color: transparent;
 }
 
@@ -259,25 +262,25 @@ a:active,
 
 .qty-plus:focus,
 .qty-plus:active {
-    background: transparent url('../images/Group 9.svg') no-repeat center center;
+    background: transparent url("../images/Group 9.svg") no-repeat center center;
     background-size: 10px 10px;
-    border: 1px solid #C2C2C2;
+    border: 1px solid #c2c2c2;
     outline: none;
     color: transparent;
 }
 
 /* AddToCart button styling */
 & when (@media-common = true) {
-.box-tocart .action.tocart {
-    vertical-align: top;
-    background-color:#FF5501;
-    border-color: #ff5722;
-    width: 100% !important;
-    max-width: 560px;
-    opacity: 1;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0;
-    margin-right: 1%;
+    .box-tocart .action.tocart {
+        vertical-align: top;
+        background-color: #ff5501;
+        border-color: #ff5722;
+        width: 100% !important;
+        max-width: 560px;
+        opacity: 1;
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+        margin-bottom: 0;
+        margin-right: 1%;
 
         @media screen and (max-width: 768px) {
             width: 95%;
@@ -305,7 +308,7 @@ a:active,
     display: inline-block;
     width: 14px;
     height: 14px;
-    background: url('../images/check.svg') no-repeat center center;
+    background: url("../images/check.svg") no-repeat center center;
     background-size: contain;
     margin-right: 2px;
 }
@@ -501,7 +504,7 @@ a:active,
     }
 
     .products.list.items.product-items > li:hover {
-        background: #FFFFFF 0% 0% no-repeat padding-box;;
+        background: #ffffff 0% 0% no-repeat padding-box;
         box-shadow: 0px 0px 8px #00000029;
         border: 1px solid transparent;
     }
@@ -531,8 +534,8 @@ a:active,
     }
 
     .action.primary {
-        background: #FF5501;
-        border: 1px solid #FF5501;
+        background: #ff5501;
+        border: 1px solid #ff5501;
         width: 204px;
         height: 52px;
     }
@@ -551,6 +554,3 @@ a:active,
         width: 100%;
     }
 }
-
-
-

@@ -1,4 +1,11 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2024 Magebit, Ltd.
+ * @author    Magebit <info@magebit.com/>
+ * @license   MIT
+ */
+-->
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
     <widget id="magebit_page_list_widget" class="Magebit\PageListWidget\Block\Widget\PageList">
         <label>CMS Page List Widget</label>
